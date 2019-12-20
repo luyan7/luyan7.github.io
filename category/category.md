@@ -1,7 +1,7 @@
 ---
 layout: category
 title: Category
-category: javascript
+category: [javascript, css, html, java]
 ---
 
 Sample category page. You need to create a page for each category.
