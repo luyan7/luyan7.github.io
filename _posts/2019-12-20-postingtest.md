@@ -3,7 +3,7 @@ layout: post
 title: "포스팅테스트"
 excerpt_separator: "<!--more-->"
 categories:
-  - category
+  [javascript, category]
 tags:
   - javascript
   - execution context
