@@ -8,7 +8,7 @@ The category is inferred from the title of the page, but you can also
 specify it with the `category` attribute in the front matter.
 
 
-[JavaScript](../_posts/javascript/index.md)
+[JavaScript](../javascript.md)
 
 
 ```md
