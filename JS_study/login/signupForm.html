@@ -1,0 +1,107 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>loginForm</title>
+	<link rel="stylesheet" href="css/basic.css"/>
+	<style>
+		.fl{float: left;}
+		.fr{float: right;}
+		.container{width: 600px;margin: 65px auto 0;background:#efefef;border-radius: 15px;box-sizing: border-box;padding: 50px;}
+		fieldset{font-size: 17px;}
+		legend{font-size: 30px;margin-bottom: 24px;width: 500px;text-align: center;}
+
+		ul{margin-bottom: 12px;}
+		ul li.tit{width: 100px;text-align: center;line-height: 42px;}
+		
+		#userId{width: 340px;height: 39px;font-size: 15px;padding-left: 15px;}
+		#userPw1{width: 340px;height: 39px;font-size: 15px;padding-left: 15px;}
+		#userPw2{width: 340px;height: 39px;font-size: 15px;padding-left: 15px;}
+		#userTel{width: 340px;height: 39px;font-size: 15px;padding-left: 15px;}
+		#email1{width: 195px;height: 39px;font-size: 15px;padding-left: 15px;}
+		#email2{height: 39px;font-size: 15px;padding-left: 8px;width: 115px;}
+		
+		#signupBT input{width: 450px;height: 50px;font-size: 1.1em;font-weight: bold;color:#ffffff;background:#24325b;border-radius: 10px;border: none;margin-left: 19px;margin-top: 15px;}
+	</style>
+	<script>
+		function formCheck(){
+			var userId = document.signupForm.userId.value;
+			var userPw1 = document.signupForm.userPw1.value;
+			var userPw2 = document.signupForm.userPw2.value;
+			var userTel = document.signupForm.userTel.value;
+			var email1 = document.signupForm.email1.value;
+			
+			if(userId == ''){
+				alert("id를 입력해주세요!");
+				document.signupForm.userId.focus();
+			}else if(userPw1 == ''){
+				alert("비밀번호를 입력해주세요!");
+				document.signupForm.userPw1.focus();
+			}else if(userPw2 == '' || userPw2 !== userPw1){
+				alert("비밀번호를 확인해주세요!");
+				document.signupForm.userPw2.value = "";
+				document.signupForm.userPw2.focus();
+			}else if(userTel == ''){
+				alert("전화번호를 입력해주세요!");
+				document.signupForm.userTel.focus();
+			}else if(email1 == ''){
+				alert("이메일을 입력해주세요!");
+				document.signupForm.email1.focus();
+			}else{
+				
+				sessionStorage.setItem("userId", userId);
+				sessionStorage.setItem("userPw", userPw1);
+
+				document.signupForm.submit();
+			}
+		}
+	</script>
+	
+</head>
+<body>
+	<div class="container">
+		<form action="loginForm.html" method="post" id="signupForm" name="signupForm">
+			<fieldset>
+				<legend>회원가입</legend>
+				<ul class="cf">
+					<li class="fl tit">ID</li>
+					<li class="fl"><input type="text" id="userId" name="userId" placeholder="id를 입력해주세요" /></li>
+				</ul>
+				<ul class="cf">
+					<li class="fl tit">PW</li>
+					<li class="fl"><input type="text" id="userPw1" name="userPw1" placeholder="비밀번호를 입력해주세요"/></li>
+				</ul>
+				<ul class="cf">
+					<li class="fl tit">PW 확인</li>
+					<li class="fl"><input type="text" id="userPw2" name="userPw2"  placeholder="비밀번호를 다시 입력해주세요" /></li>
+				</ul>
+				<ul class="cf">
+					<li class="fl tit">전화번호</li>
+					<li class="fl">
+						<input type="tel" id="userTel" name="userTel"  placeholder="하이픈(-) 없이 입력해주세요"/>
+					</li>
+				</ul>
+				<ul class="cf">
+					<li class="fl tit">이메일</li>
+					<li class="fl">
+						<input type="text" id="email1" name="email1"/> @ 
+						<select name="email2" id="email2">
+							<option value="naver.com">naver.com</option>
+							<option value="nate.com">nate.com</option>
+							<option value="daum.com">daum.com</option>
+						</select>
+					</li>
+				</ul>
+				<div id="signupBT">
+					<input type="button" id="signup" value="회원가입" onclick="formCheck();"/>
+				</div>
+				
+			</fieldset>
+		</form>
+	</div>
+	
+	
+	
+	
+</body>
+</html>

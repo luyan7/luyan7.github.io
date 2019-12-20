@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>loginForm</title>
+	<link rel="stylesheet" href="css/basic.css"/>
+	<style>
+		.container{width: 500px;margin: 100px auto 0;background:#ededed;border-radius: 7px;}
+		.container form{padding: 50px;}
+		.IDWrap{margin-bottom: 11px;}
+		.PWWrap{margin-bottom: 11px;}
+		.IDWrap input, .PWWrap input{width: 395px;height: 44px;font-size: 15px;padding-left: 12px;}
+		
+		#loginBT{padding-top:15px;}
+		#loginBT input{width: 410px;height: 50px;border-radius: 5px;background:#283265;color:#ffffff;font-weight: bold;font-size: 18px;letter-spacing: 3px;}
+		
+	</style>
+	<script>
+	
+	function formCheck(){
+	
+		var userId = document.loginForm.userId.value;
+		var userPw = document.loginForm.userPw.value;
+		
+		
+		if(document.loginForm.userId.value == ''){
+			alert("id를 입력해주세요!");
+			document.loginForm.userId.focus();
+		}else if(document.loginForm.userPw.value == ''){
+			alert("비밀번호를 입력해주세요!");
+			document.loginForm.userPw.focus();
+		}else if(userId !== sessionStorage.getItem("userId") || userPw !== sessionStorage.getItem("userPw")){
+			alert('다시 입력해주세요.');
+			document.loginForm.userId.value = "";
+			document.loginForm.userPw.value = "";
+			document.loginForm.userId.focus();
+		}else{
+			
+			document.loginForm.submit();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	
+	<div class="container">
+		<form action="login.html" method="post" id="loginForm" name="loginForm">
+			<div class="IDWrap cf">
+				<input type="text" name="userId" id="userId" placeholder="아이디를 입력해주세요"/>
+			</div>
+			<div class="PWWrap cf">
+				<input type="password" name="userPw" id="userPw" placeholder="비밀번호를 입력해주세요"/>
+			</div>
+			<div id="loginBT">
+				<input type="button" value="로그인" onclick="formCheck();"/>
+			</div>
+		</form>
+	</div>
+	
+	
+	
+</body>
+</html>

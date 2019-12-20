@@ -1,0 +1,17 @@
+[
+    {
+        "listrank" : 1,
+        "name" : "name1",
+        "beta_value" : "value1"
+    },
+    {
+        "listrank" : 2,
+        "name" : "name2",
+        "beta_value" : "value2"
+    },
+    {
+        "listrank" : 3,
+        "name" : "name2",
+        "beta_value" : "value2"
+    }
+]
