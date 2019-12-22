@@ -17,7 +17,7 @@
 
     <script>
 
-
+    test1
     
 
 
@@ -32,16 +32,13 @@
     fetch('https://api.coinpaprika.com/v1/tickers')
     .then(function(response){
         if(response.status === 200 || response.status === 201){
-            // response.json().then(json => console.log(json));
             console.log('데이터를 성공적으로 받아오셨습니다.');
             response.json().then(function(json){
-                // totaldata = JSON.stringify(json);
                 var totalData = json; // 원본 json 데이터
             
                 for(let i=0; i<totalData.length; i++){ //정렬하기 전
                     var temp = new Object();
 
-                    // temp.number = 0;
                     temp.name = totalData[i].name;
                     temp.value = totalData[i].beta_value;
 
